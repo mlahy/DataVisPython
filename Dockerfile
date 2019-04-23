@@ -18,7 +18,7 @@ RUN pip install numpy
 RUN pip install matplotlib
 RUN pip install seaborn
 RUN pip install plotnine
-RUN pip install plotly==3.7.0
+RUN pip install plotly
 RUN pip install plotly-express
 RUN pip install vega==1.3
 RUN pip install vega_datasets
@@ -29,16 +29,16 @@ RUN pip install ipywidgets
 RUN pip install qgrid
 RUN pip install dash
 RUN pip install dash-daq
-RUN git clone https://github.com/PAIR-code/facets
-RUN pip install --upgrade google-api-python-client
-RUN conda install -y protobuf
-RUN pip install wordcloud
-RUN pip install scattertext
-RUN pip install spacy && python -m spacy download en
-RUN pip install jieba spacy empath astropy gensim umap-learn
-RUN pip install missingno
-RUN pip install quilt
-RUN quilt install ResidentMario/missingno_data
+# RUN git clone https://github.com/PAIR-code/facets
+# RUN pip install --upgrade google-api-python-client
+# RUN conda install -y protobuf
+# RUN pip install wordcloud
+# RUN pip install scattertext
+# RUN pip install spacy && python -m spacy download en
+# RUN pip install jieba spacy empath astropy gensim umap-learn
+# RUN pip install missingno
+# RUN pip install quilt
+# RUN quilt install ResidentMario/missingno_data
 
-CMD jupyter nbextension enable toc2/main
-CMD jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN jupyter nbextension enable toc2/main
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
