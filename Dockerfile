@@ -1,11 +1,27 @@
 FROM jupyter/base-notebook:7d427e7a4dde
 
+RUN pip install --no-cache-dir notebook==5.*
+
 USER root
 
 RUN sudo apt-get update -y
 RUN sudo apt-get install git -y
 
-USER jovyan
+ARG NB_USER=jovyan
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+
+COPY . ${HOME}
+# USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
 
 RUN pip install --upgrade pip
 RUN conda update -n base -y conda
