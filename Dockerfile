@@ -23,10 +23,10 @@ COPY . ${HOME}/work
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-RUN pip install --upgrade pip
-RUN conda update -n base -y conda
+#RUN pip install --upgrade pip
+#RUN conda update -n base -y conda
 
-RUN conda install -c conda-forge -y rise
+#RUN conda install -c conda-forge -y rise
 RUN conda install -c conda-forge -y jupyter_contrib_nbextensions
 
 RUN pip install pandas
@@ -41,10 +41,10 @@ RUN pip install vega_datasets
 RUN pip install altair
 RUN pip install bokeh
 RUN pip install holoviews
-RUN pip install ipywidgets
-RUN pip install qgrid
-RUN pip install dash
-RUN pip install dash-daq
+#RUN pip install ipywidgets
+#RUN pip install qgrid
+#RUN pip install dash
+#RUN pip install dash-daq
 # RUN git clone https://github.com/PAIR-code/facets
 # RUN pip install --upgrade google-api-python-client
 # RUN conda install -y protobuf
@@ -57,4 +57,4 @@ RUN pip install dash-daq
 # RUN quilt install ResidentMario/missingno_data
 
 RUN jupyter nbextension enable toc2/main
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+#RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
